@@ -37,3 +37,9 @@ kernel_restart(buffer);
     machine_restart(cmd);
           do_kernel_restart(cmd);
                   atomic_notifier_call_chain(&restart_handler_list, reboot_mode, cmd);
+
+
+参考gpio_restart
+drivers/power/reset/gpio-restart.c
+	register_restart_handler(&gpio_restart->restart_handler)
+
