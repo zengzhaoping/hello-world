@@ -33,6 +33,7 @@ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
 		break;
 }
 kernel_restart(buffer);
+    pr_emerg("Restarting system with command '%s'\n", cmd);
     machine_restart(cmd);
           do_kernel_restart(cmd);
                   atomic_notifier_call_chain(&restart_handler_list, reboot_mode, cmd);
